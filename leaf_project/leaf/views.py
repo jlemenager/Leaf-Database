@@ -1,8 +1,8 @@
 from django.shortcuts import render
-from .models import Business, SpendingDataPerYear
+from .models import Business, SpendingDataPerYear, DigitalMarketingDataPerYear, GHGAssessmentDataPerYear, WorkerPayPerYear
 from django.http import JsonResponse
 from rest_framework import generics
-from .serializers import BusinessSerializer, SpendingDataPerYearSerializer
+from .serializers import BusinessSerializer, SpendingDataPerYearSerializer, DigitalMarketingDataPerYearSerializer, GHGAssessmentDataPerYearSerializer, WorkerPayPerYearSerializer
 # Create your views here.
 
 def business_list(request):
@@ -26,3 +26,26 @@ class SpendingDataPerYearDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = SpendingDataPerYear.objects.all()
     serializer_class = SpendingDataPerYearSerializer
 
+class DigitalMarketingDataPerYearList(generics.ListCreateAPIView):
+    queryset = DigitalMarketingDataPerYear.objects.all()
+    serializer_class = DigitalMarketingDataPerYearSerializer
+
+class DigitalMarketingDataPerYearDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = DigitalMarketingDataPerYear.objects.all()
+    serializer_class = DigitalMarketingDataPerYearSerializer
+
+class GHGAssessmentDataPerYearList(generics.ListCreateAPIView):
+    queryset = GHGAssessmentDataPerYear.objects.all()
+    serializer_class = GHGAssessmentDataPerYearSerializer
+
+class GHGAssessmentDataPerYearDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = GHGAssessmentDataPerYear.objects.all()
+    serializer_class = GHGAssessmentDataPerYearSerializer
+
+class WorkerPayPerYearList(generics.ListCreateAPIView):
+    queryset = WorkerPayPerYear.objects.all()
+    serializer_class = WorkerPayPerYearSerializer
+
+class WorkerPayPerYearDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = WorkerPayPerYear.objects.all()
+    serializer_class = WorkerPayPerYearSerializer
